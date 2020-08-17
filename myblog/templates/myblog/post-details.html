@@ -1,0 +1,27 @@
+{% extends 'myblog/base.html' %}
+
+{% block title %} <title>Post Details</title> {% endblock %}
+
+{% block content %}
+   <div class="container" style="text-align: center">
+        {% if single_post %}
+        <div class="card">
+            <div class="card-header">
+                <h1>{{ single_post.title }}</h1>
+            </div>
+
+            <div>
+                <img src="{{ single_post.featured_image.url }}" alt="{{ single_post.title }}" width="450px" height="400px">
+            </div>
+            <br>
+            <br>
+            <div class="container">
+                <div style="text-align: left"> {{ single_post.content|safe }}</div>
+            </div>
+            <div class="card-body">
+                <p>Updated at {{ single_post.date_updated }}</p>
+            </div>
+        </div>
+        {% endif %}
+   </div>
+{% endblock %}
